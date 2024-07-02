@@ -1,0 +1,60 @@
+DeepLearning Topics:
+
+1. History of Deep Learning
+2. Activation functions
+	1. Step
+	2. Linear 
+	3. Sigmoid --> 0 to 1 --> Logistic regression
+	4. Tanh --> -1 to 1
+	5. ReLU --> Linear for positive and negative values neurons are deactivated
+
+3. Network of neurons:
+	A structured combination of nodes in different layers that work in cohesion to learn complex patterns
+	
+	node/neuron Basic processing Unit
+	Layer: Combination of neurons at same level that work togethor to process data.
+	
+Activation functions in last LayerL
+For regression Problems:
+Linear Activation functions(positive +ve and -ve predictions) like temperature prediction
+ReLU activation functions 	- only for positive predictions like house price prediction.
+
+For regression problems:
+Sigmoid activation function for Binary classification problems
+Softmax activation function for multi Classification problems.
+
+Lossfunction/Cost function is a method to measure the error of network predictions
+Its a feedback mechanism for the network to update weights.
+
+2 types of Loss functions based on ML tasks
+Classification: 
+	a. Binary cross entropy loss/ Log loss/
+		--> -plogp -(1-p)log(1-p)
+		Minimize the loss function, as p <1 and log p is negative ---> -plogp will be positive
+		Lower log loss -- > better predictions
+		Higher log loss -- > Poor performance
+	b. Category classification problems
+		Sum(-yi * log(pi))
+		
+Regression:
+	a. Mean Square Error loss function that quantifies Average of the squared difference between predicted and actual values.
+	
+		Not best choice if data contains significant outliers.
+		
+	b. Mean Absolute error: Average of absolute difference between actula and predicted values.
+		Preferred scenarios:
+			Food delivery
+			
+			
+Custom loss functionss: It give flexibility to the model and improved performance.
+In pytorch custome loss function is created by inheriting 
+nn.Module class and implementing 
+forward method 
+
+
+Gradient descent :
+It is a way to find the local minimum and optimize the loss function.
+Smarter way to test different values for weights and biases
+
+How to find ?
+	MSE = ((wx+b)2 - y2)
