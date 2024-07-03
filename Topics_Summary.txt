@@ -58,3 +58,23 @@ Smarter way to test different values for weights and biases
 
 How to find ?
 	MSE = ((wx+b)2 - y2)
+
+
+
+Vanishing Gradient or Exploding gradient:
+w_new - w_old - eeta * differentiation of Loss function w.r.t weight of that node
+w_new = w_old - eeta * slope
+
+The slope is zero for w_min, because of which w_new = w_old, Also
+H1 weights depends on weight updates of 10 layers after it.
+Like in backpropagation,
+			H1 <-- H2 <-- H3 <-- H4 <-- H5 and so on
+	So slope at H10 = 0.1 ==> at H1 ; w_new = w_old - eeta * (0.1)**10
+	resulting in a very small update.
+
+How to minimize this?
+Sigmoid activation function: 
+Tanh :
+ReLU
+Leaky ReLU
+exponential ReLU
