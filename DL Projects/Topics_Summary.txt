@@ -118,7 +118,8 @@ Solutions:	1. Reduce model complexity
 			3. Early stopping
 					When validation error increases and training error decreases
 
-			4. 
+			4. Regularization 
+					l2 is most common and l1 is almost never used.
 
 Hyper Parameter tuning:
 	what are they ?
