@@ -60,6 +60,7 @@ How to find ?
 	MSE = ((wx+b)2 - y2)
 
 
+Why this occurs : Because of backpropagation
 
 Vanishing Gradient or Exploding gradient:
 w_new - w_old - eeta * differentiation of Loss function w.r.t weight of that node
@@ -72,9 +73,61 @@ Like in backpropagation,
 	So slope at H10 = 0.1 ==> at H1 ; w_new = w_old - eeta * (0.1)**10
 	resulting in a very small update.
 
-How to minimize this?
-Sigmoid activation function: 
-Tanh :
-ReLU
-Leaky ReLU
-exponential ReLU
+How to minimize this problem of vanishing gradients in Deep NN:
+	1. Using right activation function
+	2. Optimum weight initialization
+	3. Batch normalization
+	4. Gradient clipping
+
+1. Using right activation function
+	Linear activation function: When all the activation functions in Deep NN are linear its a Linear regression
+	Sigmoid activation function: Hidden layers for non-linearity-->but caused further vanishing gradient problem
+								 compressing output between 0 and 1
+
+	Tanh : Compressing range to -1 to + 1, but problem exists
+	ReLU : Helps in minimizing the VG, but negative inputs gradients is 0, dead neurons
+	Leaky ReLU : Instead of 0 for Relu negative, input * a, where 0.01<= a <=0.3
+	exponential ReLU : For negative values in ReLU, alpha(e^x - 1) 
+						alpha = 1.0(smoothing loss function and VG)
+						alpha = 0.01 to 0.3 faster convergence
+	Summary, Leaky Relu and exponential ReLU are used in hidden layers
+			Sigmoid is used in last layer for binary classification process.
+			Sigmoid and Tanh are used in hidden layers for more complex neural networks
+
+	Softmax activation function:
+							Often used in last layer of multiclassification problem.
+							It converts a vector of raw prediction scores (logits) into probabilities
+							Sigma(zi) = e^zi/sum of (e^zj) --> (zj are all elements in vector)
+
+2. Optimum weight initialization 
+	Xvaier  initialization where variance = 1/
+	n method insitialization where variance = 2/
+
+3. Batch Normalization: The input is normalized from one hidden layer to other
+
+4. Gradient clipping: helps in preventing exploding gradients. 
+			(threshold,weight)
+
+Overfitting Problem:
+		Model learns the complexities of train data too good that it stumbles on test data
+
+Solutions:	1. Reduce model complexity
+			2. Drop out method, where we introduce probability(x) in each hidden layer
+					Generally applied at inner hidden layers.
+
+			3. Early stopping
+					When validation error increases and training error decreases
+
+			4. 
+
+Hyper Parameter tuning:
+	what are they ?
+
+	Explain different hyperparameters in each model
+
+Fine tuning the model:
+Gridsearch cv 
+Random Search cv 
+Bayseian optimization
+
+
